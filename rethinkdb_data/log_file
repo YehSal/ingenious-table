@@ -1,0 +1,19 @@
+2018-01-01T15:22:49.562254000 40.042752s notice: Recursively removing directory /Users/yehiasaleh/Desktop/code/src/github/ingenious-table/rethinkdb_data/tmp
+2018-01-01T15:22:49.564361000 40.044865s notice: Initializing directory /Users/yehiasaleh/Desktop/code/src/github/ingenious-table/rethinkdb_data
+2018-01-01T15:22:49.564490000 40.044987s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/yehiasaleh/Desktop/code/src/github/ingenious-table/rethinkdb_data' did not already exist or is empty.)
+2018-01-01T15:22:49.564546000 40.045044s notice: Running rethinkdb 2.3.6 (CLANG 9.0.0 (clang-900.0.37))...
+2018-01-01T15:22:49.571855000 40.052354s notice: Running on Darwin 17.2.0 x86_64
+2018-01-01T15:22:49.571937000 40.052434s notice: Loading data from directory /Users/yehiasaleh/Desktop/code/src/github/ingenious-table/rethinkdb_data
+2018-01-01T15:22:49.622259000 40.102759s info: Automatically using cache size of 982 MB
+2018-01-01T15:22:49.622694000 40.103194s notice: Listening for intracluster connections on port 29015
+2018-01-01T15:22:49.623877000 40.104377s notice: Listening for client driver connections on port 28015
+2018-01-01T15:22:49.623973000 40.104472s notice: Listening for administrative HTTP connections on port 8080
+2018-01-01T15:22:49.623975000 40.104474s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2018-01-01T15:22:49.623977000 40.104477s notice: Listening on driver addresses: 127.0.0.1, ::1
+2018-01-01T15:22:49.623979000 40.104479s notice: Listening on http addresses: 127.0.0.1, ::1
+2018-01-01T15:22:49.623982000 40.104482s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-01-01T15:22:49.623986000 40.104485s notice: Server ready, "Yehias_MacBook_Pro_local_gvw" 75f97830-2c95-4f05-8b4a-44bc45ff14db
+2018-01-01T15:23:33.390662000 83.872726s info: Table c76177c6-62ec-4640-9d1d-1ecae888dbac: Starting a new Raft election for term 1.
+2018-01-01T15:23:33.391034000 83.873098s info: Table c76177c6-62ec-4640-9d1d-1ecae888dbac: Added replica on this server.
+2018-01-01T15:23:33.399259000 83.881323s info: Table c76177c6-62ec-4640-9d1d-1ecae888dbac: This server is Raft leader for term 1. Latest log index is 0.
+2018-01-01T15:23:33.900831000 84.382913s info: Table c76177c6-62ec-4640-9d1d-1ecae888dbac: Configuration is changing.
