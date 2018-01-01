@@ -20,9 +20,9 @@ app.use(cors());
 app.use(helmet());
 
 /*
- * Routes and services
+ * Routes
  */
-var api = require('./models/student');
+var api = require('./routes/students');
 app.get('/students', api.list);
 app.get('/students/:id', api.get);
 app.delete('/student/:id', api.remove);
