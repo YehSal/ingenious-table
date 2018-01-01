@@ -1,0 +1,21 @@
+{
+  "name": "ingenious-table",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "9.2.0",
+    "npm": "5.6.0"
+  },  
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.14.7",
+    "save": "^2.3.2"
+  }
+}
