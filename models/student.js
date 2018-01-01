@@ -1,5 +1,5 @@
-//TODO: Refactor the code into routes and models
 //TODO: validations, must have all fields
+// TODO: make use of the config folder
 var thinky = require('thinky')({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,

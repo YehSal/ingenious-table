@@ -1,4 +1,4 @@
-
+// TODO: Refactor routes out
 const express = require( 'express' );
 const logger = require( 'morgan' );
 const bodyParser = require( 'body-parser' );
@@ -22,7 +22,7 @@ app.use(helmet());
 /*
  * Routes
  */
-var api = require('./routes/students');
+var api = require('./services/students');
 app.get('/students', api.list);
 app.get('/students/:id', api.get);
 app.delete('/student/:id', api.remove);
