@@ -76,6 +76,8 @@ class InGeniousTable extends Component {
             </TableRowColumn>
           </TableRow>
         );
+      } else {
+        return;
       }
     });
   }
