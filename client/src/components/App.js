@@ -1,24 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import * as actions from './../actions';
 import Header from './Header';
-import TableExampleControlled from './Table';
+import InGeniousTable from './InGeniousTable';
+import RowsNew from './RowsNew';
 
 
-const App = () => {
-	return (
-		<MuiThemeProvider>
-			<div>
-				<BrowserRouter>
-					<div> 
-						<Header />
-						<Route exact path="/" component={TableExampleControlled} />
-					</div>
-				</BrowserRouter>
-			</div>
-		</MuiThemeProvider>
-	);
+class App extends Component {
+	componentDidMount() {         
+	}
+
+	render() {
+		return (
+			<MuiThemeProvider>
+				<div>
+					<BrowserRouter>
+						<div> 
+							<Header />
+							<Route exact path="/" component={InGeniousTable} />
+							<RowsNew />
+						</div>
+					</BrowserRouter>
+				</div>
+			</MuiThemeProvider>
+		);
+	}
 };
 
-export default App;
+export default connect(null, actions)(App);
