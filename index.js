@@ -1,4 +1,6 @@
-// TODO: Refactor routes out
+/*
+ * Server configurations
+ */
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -8,7 +10,7 @@ const http = require('http');
 const socketIO = require('socket.io');
 require( 'dotenv' ).config();
 
-const PORT = process.env.PORT || 5000;
+
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
@@ -25,19 +27,26 @@ app.use(cors());
 app.use(helmet());
 
 /*
- * Routes
+ * Routes and handling of production routing to tell our express server
+ * how to handle client-side routes
  */
-var api = require('./services/rows');
-app.get('/api/rows', api.list);
-app.get('/api/rows/:id', api.get);
-app.delete('/api/row/:id', api.remove);
-app.put('/api/row/:id', api.update);
-app.post('/api/rows', api.add);
+ require('./routes/rows')(app);
 
+ if (process.env.NODE_ENV === 'production') {
+ 	// Express will serve up production assets like main.js or main.css
+ 	app.use(express.static('client/build'));
+
+ 	// Express will serve up the index.html if it doesn't recognize the route
+ 	const path = require('path');
+ 	app.get('*', (req, res) => {
+ 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+ 	});
+ }
 
 /* 
  * Dynamic port specification for Heroku depolyment
  */
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   var host = server.address().address;
   var port = server.address().port;
