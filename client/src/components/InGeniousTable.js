@@ -43,12 +43,12 @@ class InGeniousTable extends Component {
     this.setState({
     [event.target.name]: toggled,
     });      
-  };
+  }
 
   handleChange = (event) => {
     event.preventDefault();
     this.setState({height: event.target.value});
-  };
+  }
 
   hideOptions = (event) => {
     this.setState({showOptions: false});      
@@ -60,21 +60,23 @@ class InGeniousTable extends Component {
 
   renderStudents = () => {
     return _.map(this.props.rows, row => {
-      var formattedDate = row === undefined ? row.date.toString().slice(0, 10) : 10;
-      return(
-        <TableRow key={row.id}>
-          <TableRowColumn>{row.student}</TableRowColumn>
-          <TableRowColumn>{row.counselor}</TableRowColumn>
-          <TableRowColumn>{row.hours}</TableRowColumn>
-          <TableRowColumn>{formattedDate}</TableRowColumn>
-          <TableRowColumn>
-            <RowsDelete row={row} />
-          </TableRowColumn>
-          <TableRowColumn>
-            <RowsEdit row={row} />
-          </TableRowColumn>
-        </TableRow>
-      );
+      if (row !== undefined) {
+        var formattedDate = row.date.toString().slice(0, 10);
+        return(
+          <TableRow key={row.id}>
+            <TableRowColumn>{row.student}</TableRowColumn>
+            <TableRowColumn>{row.counselor}</TableRowColumn>
+            <TableRowColumn>{row.hours}</TableRowColumn>
+            <TableRowColumn>{formattedDate}</TableRowColumn>
+            <TableRowColumn>
+              <RowsDelete row={row} />
+            </TableRowColumn>
+            <TableRowColumn>
+              <RowsEdit row={row} />
+            </TableRowColumn>
+          </TableRow>
+        );
+      }
     });
   }
 
