@@ -1,6 +1,6 @@
 # InGenious Table
 
-![InGenious Logo](https://imgur.com/a/HA1na)
+![InGenious Logo](https://imgur.com/CNjkA4D)
 
 ## Online Demo
 Link: https://nameless-dawn-98079.herokuapp.com/
