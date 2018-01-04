@@ -1,6 +1,6 @@
 # InGenious Table
 
-![InGenious Logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi5zL2A-r7YAhWJ5YMKHW7qCG0QjRwIBw&url=https%3A%2F%2Fwww.prlog.org%2F12322958-dr-deborah-gutman-joins-ingenius-prep-team-as-new-head-of-md-division.html&psig=AOvVaw3ZRbk7aHh2ORig6yK0ygry&ust=1515177447300273)
+![InGenious Logo](https://imgur.com/a/HA1na)
 
 ## Online Demo
 Link: https://nameless-dawn-98079.herokuapp.com/
