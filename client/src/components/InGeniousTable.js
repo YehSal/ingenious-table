@@ -10,69 +10,39 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import * as actions from './../actions';
-
-import RowsDelete from './RowsDelete';
-import RowsEdit from './RowsEdit';
+import RowsDelete from './RowForm/RowsDelete';
+import RowsEdit from './RowForm/RowsEdit';
 
 class InGeniousTable extends Component {
-  // When the Table component is loaded, we fetch all our rows
   constructor(props) {
     super(props)
     this.state = {
-      showOptions: false,
-      fixedHeader: true,
-      fixedFooter: false,
       stripedRows: false,
       showRowHover: true,
-      selectable: false,
-      multiSelectable: false,
-      enableSelectAll: false,
-      deselectOnClickaway: true,            
-      height: '500px',
-      editDialog: false,
-      selectedRow: null,
-      selectedRowIndex: null,
+      displayRowCheckbox: false
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-    this.props.fetchRows();
+    this.props.fetchRows(); // Fetch all rows
   }
 
-  handleToggle = (event, toggled) => {        
-    event.preventDefault();
-    this.setState({
-    [event.target.name]: toggled,
-    });      
+  formatDate = (date) => {
+    return (date.getMonth() + 1) + '/' + date.getDay() + '/' +  date.getFullYear();
   }
 
-  handleChange = (event) => {
-    event.preventDefault();
-    this.setState({height: event.target.value});
-  }
-
-  hideOptions = (event) => {
-    this.setState({showOptions: false});      
-  }
-
-  showOptions = (event) => {
-    this.setState({showOptions: true});    
-  }
-
-  renderStudents = () => {
+  renderRows = () => {
     return _.map(this.props.rows, row => {
       if (row !== undefined) {
-        // var formattedDate = row.date.toString().slice(0, 10);
+        var formattedDate = this.formatDate(new Date(row.date));
         return(
           <TableRow key={row.id}>
             <TableRowColumn>{row.student}</TableRowColumn>
             <TableRowColumn>{row.counselor}</TableRowColumn>
             <TableRowColumn>{row.hours}</TableRowColumn>
-            <TableRowColumn>{row.date}</TableRowColumn>
-            <TableRowColumn>
-              <RowsDelete row={row} />
-            </TableRowColumn>
+            <TableRowColumn>{formattedDate}</TableRowColumn>
             <TableRowColumn>
               <RowsEdit row={row} />
+            </TableRowColumn>
+            <TableRowColumn>
+              <RowsDelete row={row} />
             </TableRowColumn>
           </TableRow>
         );
@@ -82,27 +52,38 @@ class InGeniousTable extends Component {
     });
   }
 
+  renderHeaderColumns = () => {
+    return(
+      <TableRow>
+        <TableHeaderColumn>Student</TableHeaderColumn>
+        <TableHeaderColumn>Counselor</TableHeaderColumn>
+        <TableHeaderColumn>Hours</TableHeaderColumn>
+        <TableHeaderColumn>Date</TableHeaderColumn>
+        <TableHeaderColumn>Edit</TableHeaderColumn>
+        <TableHeaderColumn>Delete</TableHeaderColumn>
+      </TableRow>
+    );
+  }
+
   render() {
     return (
-      <Table onRowSelection={this.handleRowSelection}>
-        <TableHeader 
-          displaySelectAll={false}
-          adjustForCheckbox={false}
-          enableSelectAll={false}>
-          <TableRow>
-            <TableHeaderColumn>row</TableHeaderColumn>
-            <TableHeaderColumn>Counselor</TableHeaderColumn>
-            <TableHeaderColumn>Hours</TableHeaderColumn>
-            <TableHeaderColumn>Date</TableHeaderColumn>
-            <TableHeaderColumn>Edit</TableHeaderColumn>
-            <TableHeaderColumn>Delete</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody
-          displayRowCheckbox={false}>
-          {this.renderStudents()}
-        </TableBody>
-      </Table>
+      <div className="TableContainer">
+        <Table onRowSelection={this.handleRowSelection}>
+          <TableHeader 
+            displaySelectAll={false}
+            adjustForCheckbox={false}
+            enableSelectAll={false}>
+            {this.renderHeaderColumns()}
+          </TableHeader>
+          <TableBody
+            displayRowCheckbox={this.state.displayRowCheckbox}
+            showRowHover={this.state.showRowHover}
+          >
+            {this.renderRows()}
+            {this.renderHeaderColumns()}
+          </TableBody>
+        </Table>
+      </div>
     );
   }
 }

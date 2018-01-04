@@ -8,11 +8,11 @@ var path = require('path');
 // });
 
 var thinky = require('thinky')({
-  host: 'aws-us-east-1-portal.32.dblayer.com',
-  db: 'ingenious_db',
-  port: 26389,
-  user: 'admin',
-  password: 'e742b7dd6b39b02dd7c17d59d288c3ff',
+  host: process.env.DB_HOST_DEPLOYED,
+  db: process.env.DB_NAME_DEPLOYED,
+  port: process.env.DB_PORT_DEPLOYED,
+  user: process.env.DB_USER_DEPLOYED,
+  password: process.env.DB_PASSWORD_DEPLOYED,
   ssl: {
       ca: [fs.readFileSync(path.resolve(__dirname, '../cert'))]
     }

@@ -1,15 +1,17 @@
+// Row Services has CRUD methods for the Row model
 const {Row, r} = require('./../models/row');
 
+// List all rows 
 var list = async (req, res) => {
 	try {
-		const rows = await Row.orderBy({index: r.desc('student')}).run();
-		console.log('rows', rows);
+		const rows = await Row.orderBy({index: r.asc('student')}).run();
 		res.json(rows);	
 	} catch(err) {
 		res.json({message: err});
 	}
 };
 
+// Add a new row
 var add = async (req, res) => {
 	try {
 		const row = new Row(req.body);
@@ -20,6 +22,7 @@ var add = async (req, res) => {
 	}
 };
 
+// Get a row
 var get = async (req, res) => {
 	try {
 		const row = await Row.get(req.params.id).run();
@@ -29,6 +32,7 @@ var get = async (req, res) => {
 	}
 };
 
+// Remove a row
 var remove = async (req, res) => {
 	try {
 		const row = await Row.get(req.params.id).run();
@@ -39,6 +43,7 @@ var remove = async (req, res) => {
 	}
 };
 
+// Update a row
 var update = async (req, res) => {
 	try {
 		var row = await Row.get(req.params.id).run();

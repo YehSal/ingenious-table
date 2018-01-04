@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import {reducer as reduxForm} from 'redux-form';
-import studentReducer from './studentReducer';
+import rowReducer from './rowReducer';
 
 export default combineReducers({
-	row: studentReducer,
+	row: rowReducer,
 	form: reduxForm
 });

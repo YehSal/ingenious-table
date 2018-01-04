@@ -1,3 +1,6 @@
+/*
+ * Header Styling
+ */
 .Header-main {
   text-align: center;
 }
@@ -16,3 +19,62 @@
 .Header-title {
   font-size: 1.5em;
 }
+
+/*
+ * Table Styling
+ */
+.TableContainer {
+	margin: 20px 40px;    
+}
+
+@-webkit-keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/*
+ * Icon Styling
+ */
+.EditIcon, .DeleteIcon { 
+	cursor: pointer; 
+}
+
+/*
+ * Push effect for edit and delete icons
+ */
+@keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.EditIcon {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+.EditIcon:hover, .EditIcon:focus, .EditIcon:active,
+.DeleteIcon:hover, .DeleteIcon:focus, .DeleteIcon:active {
+  -webkit-animation-name: hvr-push;
+  animation-name: hvr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+

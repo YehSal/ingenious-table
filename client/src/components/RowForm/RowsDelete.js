@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import DeleteIcon from 'react-icons/lib/md/delete';
 import {connect} from 'react-redux';
 
-import * as actions from './../actions';
+import * as actions from './../../actions';
 
 class DeleteRow extends Component {
   state = {
@@ -19,7 +19,6 @@ class DeleteRow extends Component {
     this.setState({open: false});
   };
 
-  // Call an action onto this.props.row
   handleDelete() {
   	var selectedRow = this.props.row
   	this.props.deleteRow(selectedRow.id);
@@ -42,8 +41,9 @@ class DeleteRow extends Component {
     ];
 
     return (
-      <div className="editDialog">
-        <DeleteIcon    
+      <div>
+        <DeleteIcon
+          className="DeleteIcon"    
           size={35}                                              
           onClick={this.handleOpen}
         />
@@ -56,7 +56,7 @@ class DeleteRow extends Component {
           autoScrollBodyContent={true}          
           modal={false}
         >
-        	<p> Are you sure you want to delete this row?</p>            
+        	<p>Are you sure?</p>            
         </Dialog>
       </div>
     );

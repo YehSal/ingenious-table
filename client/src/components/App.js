@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as actions from './../actions';
 import Header from './Header';
 import InGeniousTable from './InGeniousTable';
-import RowsNew from './RowsNew';
+import RowsNew from './RowForm/RowsNew';
 
 
 class App extends Component {
