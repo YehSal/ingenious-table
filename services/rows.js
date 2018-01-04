@@ -3,6 +3,7 @@ const {Row, r} = require('./../models/row');
 var list = async (req, res) => {
 	try {
 		const rows = await Row.orderBy({index: r.desc('student')}).run();
+		console.log('rows', rows);
 		res.json(rows);	
 	} catch(err) {
 		res.json({message: err});
@@ -11,7 +12,6 @@ var list = async (req, res) => {
 
 var add = async (req, res) => {
 	try {
-		console.log(req.body);
 		const row = new Row(req.body);
 		const result = await row.save();
 		res.json(result);		

@@ -1,3 +1,5 @@
+var r = require('rethinkdb');
+
 /*
  * Server configurations
  */

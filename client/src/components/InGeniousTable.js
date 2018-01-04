@@ -61,13 +61,13 @@ class InGeniousTable extends Component {
   renderStudents = () => {
     return _.map(this.props.rows, row => {
       if (row !== undefined) {
-        var formattedDate = row.date.toString().slice(0, 10);
+        // var formattedDate = row.date.toString().slice(0, 10);
         return(
           <TableRow key={row.id}>
             <TableRowColumn>{row.student}</TableRowColumn>
             <TableRowColumn>{row.counselor}</TableRowColumn>
             <TableRowColumn>{row.hours}</TableRowColumn>
-            <TableRowColumn>{formattedDate}</TableRowColumn>
+            <TableRowColumn>{row.date}</TableRowColumn>
             <TableRowColumn>
               <RowsDelete row={row} />
             </TableRowColumn>
