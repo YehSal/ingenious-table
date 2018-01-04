@@ -56,7 +56,7 @@ class RowsNew extends Component {
             })}>
               {renderFields()}
               <FlatButton
-              	type="submit"
+                type="submit"
                 label="Submit"
                 primary={true}
                 keyboardFocused={true}
@@ -64,8 +64,8 @@ class RowsNew extends Component {
               />
                <FlatButton
                 label="Reset"
-                primary={true}
-                keyboardFocused={true}
+                secondary={true}
+                keyboardFocused={false}
                 onClick={this.props.reset}
               />
             </form>

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {
   Table,
   TableBody,
+  TableFooter,
   TableHeader,
   TableHeaderColumn,
   TableRow,
@@ -65,6 +66,23 @@ class InGeniousTable extends Component {
     );
   }
 
+  renderFooterColumns = () =>{
+    return(
+      <TableFooter
+        adjustForCheckbox={false}
+      >
+        <TableRow>
+          <TableHeaderColumn>Student</TableHeaderColumn>
+          <TableHeaderColumn>Counselor</TableHeaderColumn>
+          <TableHeaderColumn>Hours</TableHeaderColumn>
+          <TableHeaderColumn>Date</TableHeaderColumn>
+          <TableHeaderColumn>Edit</TableHeaderColumn>
+          <TableHeaderColumn>Delete</TableHeaderColumn>
+        </TableRow>
+      </TableFooter>
+    );
+  }
+
   render() {
     return (
       <div className="TableContainer">
@@ -80,8 +98,8 @@ class InGeniousTable extends Component {
             showRowHover={this.state.showRowHover}
           >
             {this.renderRows()}
-            {this.renderHeaderColumns()}
           </TableBody>
+          {this.renderFooterColumns()}
         </Table>
       </div>
     );

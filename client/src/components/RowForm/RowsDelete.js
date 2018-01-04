@@ -35,7 +35,9 @@ class DeleteRow extends Component {
         onClick={() => this.handleDelete()}
       />,
       <FlatButton
-      label="No"          
+      label="No" 
+      secondary={true}
+      keyboardFocused={false}         
       onClick={this.handleClose}
     />,
     ];
@@ -56,7 +58,8 @@ class DeleteRow extends Component {
           autoScrollBodyContent={true}          
           modal={false}
         >
-        	<p>Are you sure?</p>            
+        	<p>Are you sure?</p> 
+          <p><small>This data will be permanently removed</small></p>         
         </Dialog>
       </div>
     );

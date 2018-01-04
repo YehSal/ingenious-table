@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MediaQuery from 'react-responsive';
 
 import * as actions from './../actions';
 import Header from './Header';
@@ -18,11 +19,11 @@ class App extends Component {
 			<MuiThemeProvider>
 				<div>
 					<BrowserRouter>
-						<div> 
-							<Header />
-							<Route exact path="/" component={InGeniousTable} />
-							<RowsNew />
-						</div>
+							<div> 
+								<Header />
+								<Route exact path="/" component={InGeniousTable} />
+								<RowsNew />
+							</div>
 					</BrowserRouter>
 				</div>
 			</MuiThemeProvider>

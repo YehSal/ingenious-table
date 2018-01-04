@@ -59,14 +59,20 @@ class RowsEdit extends Component {
           onRequestClose={this.handleClose}
           contentStyle={{textAlign: "center"}}
           autoScrollBodyContent={true}
-          modal={true}
+          modal={false}
         >
           <form 
           onSubmit={this.props.handleSubmit(values => {
             const selectedRow = this.props.row;
             this.props.editRow(values, selectedRow.id);
-            this.setState({open: false});
-            })}
+            this.setState({
+              open: false,
+              student: values.student,  
+              counselor: values.counselor,
+              hours: values.hours,
+              date: values.date    
+            });
+          })}
           >
             {renderFields()}
             <FlatButton
@@ -78,8 +84,8 @@ class RowsEdit extends Component {
             />
              <FlatButton
               label="Reset"
-              primary={true}
-              keyboardFocused={true}
+              secondary={true}
+              keyboardFocused={false}
               onClick={this.props.reset}
             />
           </form>           
