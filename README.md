@@ -15,7 +15,7 @@ For ease of development, we are using two separate servers for the backend and f
 
 In production, the frontend server is compiled as `main.js` file and our Node/Express server is configured to handle all the incoming requests.
 
-## How to Run Locally
+## How to run Locally
 1. Clone the github repo
 2. Create a .env file in the root directory where your environment variables will be initalized
 3. Setup a rethinkdb server either locally or using an online service such as Compose or AWS
